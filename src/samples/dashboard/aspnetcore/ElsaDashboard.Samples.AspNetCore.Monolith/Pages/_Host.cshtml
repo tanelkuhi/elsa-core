@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
     var serverUrl = _configuration["Elsa:Server:BaseUrl"];
+    var useX6 = _configuration["Elsa:Server:UseX6Graphs"] == "true";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
     <script type="module" src="/_content/Elsa.Designer.Components.Web/elsa-workflows-studio/elsa-workflows-studio.esm.js"></script>
 </head>
 <body>
-<elsa-studio-root server-url="@serverUrl" monaco-lib-path="_content/Elsa.Designer.Components.Web/monaco-editor/min">
+<elsa-studio-root server-url="@serverUrl" monaco-lib-path="_content/Elsa.Designer.Components.Web/monaco-editor/min" use-x6-graphs="@useX6">
     <elsa-studio-dashboard></elsa-studio-dashboard>
 </elsa-studio-root>
 </body>

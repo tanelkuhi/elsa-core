@@ -27,6 +27,12 @@ namespace ElsaDashboard.Samples.AspNetCore.Monolith
 
             // Elsa Server settings.
             var elsaSection = Configuration.GetSection("Elsa");
+            
+            var startups = new[]
+            {
+                typeof(Startup),
+                typeof(Elsa.Activities.AzureServiceBus.Startup)
+            };
 
             services
                 .AddElsa(options => options
@@ -38,7 +44,7 @@ namespace ElsaDashboard.Samples.AspNetCore.Monolith
                     .AddJavaScriptActivities()
                     .AddUserTaskActivities()
                     .AddActivitiesFrom<Startup>()
-                    .AddFeatures(new[] { typeof(Startup) }, Configuration)
+                    .AddFeatures(startups, Configuration)
                     .WithContainerName(elsaSection.GetSection("Server:ContainerName").Get<string>())
                 );
             services
