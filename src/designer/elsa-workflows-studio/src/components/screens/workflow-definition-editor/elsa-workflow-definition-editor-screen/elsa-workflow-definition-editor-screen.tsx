@@ -1174,6 +1174,7 @@ export class ElsaWorkflowDefinitionEditorScreen {
         onRevertClicked={() => this.onRevertClicked()}
         onExportClicked={() => this.onExportClicked()}
         onImportClicked={e => this.onImportClicked(e.detail)}
+        onDeleteClicked={e => this.onDeleteClicked()}
         culture={this.culture}
       />
     );
